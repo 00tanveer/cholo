@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/addComment">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <HorizontalScrollView
+                android:id="@+id/imageRow"
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_alignParentTop="true">
+                <LinearLayout
+                    android:id="@+id/thumbnails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="2dp"/>
+            </HorizontalScrollView>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageRow">
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+    <RelativeLayout
+        android:id="@+id/addComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2edf7"
+        android:layout_alignParentBottom="true">
+        <ImageButton
+            android:id="@+id/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_camera"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="8dp"
+            />
+        <ImageButton
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@android:drawable/ic_menu_send"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write a comment..."
+            android:textColorHint="#aaa4b1"
+            android:layout_marginRight="45dp"
+            android:layout_marginLeft="45dp"
+            android:inputType="textMultiLine"
+            android:enabled="true"
+            android:isScrollContainer="true"
+            android:cursorVisible="true"
+            android:maxHeight="150dp">
+        </EditText>
+    </RelativeLayout>
+</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
