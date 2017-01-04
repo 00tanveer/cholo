@@ -6,10 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.example.root.listexample.message_app.EventRoomActivity;
 import com.example.root.listexample.util.CustomVolleyRequest;
 import com.example.root.listexample.util.EventListTest;
 
@@ -78,11 +81,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
         protected NetworkImageView eventThumbnail;
         protected TextView eventName, eventLocation, eventDate, eventTime, going, interested;
+        protected ImageView eventRoomButton;
 
         public MyViewHolder(View view) {
             super(view);
 
             eventThumbnail = (NetworkImageView) view.findViewById(R.id.imageView2);
+            eventRoomButton = (ImageView) view.findViewById(R.id.eventRoomButton);
 
             eventThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -100,6 +105,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             eventTime = (TextView) view.findViewById(R.id.eventTime);
             going = (TextView) view.findViewById(R.id.going);
             interested = (TextView) view.findViewById(R.id.interested);
+
+            eventRoomButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), EventRoomActivity.class);
+                    intent.putExtra("eventName", eventName.getText());
+                    Toast.makeText(v.getContext(), eventName.getText(), Toast.LENGTH_LONG).show();
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

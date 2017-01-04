@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "799427913453",
+    "firebase_url": "https://cholo-b6f7c.firebaseio.com",
+    "project_id": "cholo-b6f7c",
+    "storage_bucket": "cholo-b6f7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799427913453:android:fa13b5f998f63304",
+        "android_client_info": {
+          "package_name": "com.example.root.listexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799427913453-cq1qtj07cj03t1kjojv2lp20e79gtcb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0rTRGp5bZpNuWdNFJq29HGygAqZpi1TE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

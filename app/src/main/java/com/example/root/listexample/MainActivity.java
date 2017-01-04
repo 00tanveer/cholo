@@ -1,6 +1,6 @@
 package com.example.root.listexample;
 
-import android.os.Build;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,12 +12,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ListAdapter;
+import android.view.View;
+import android.widget.ImageView;
+import com.example.root.listexample.message_app.MessageFeedActivity;
+
+
+import com.example.root.listexample.message_app.MessageFeedActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private CircleImageView profile_pic;
+    private ImageView chatButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         profile_pic = (CircleImageView) findViewById(R.id.profile_pic);
         profile_pic.setImageResource(R.drawable.profile_pic);
+        chatButton = (ImageView) findViewById(R.id.message_feed_button);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
@@ -61,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.rsvp_);
         tabLayout.getTabAt(1).setIcon(R.drawable.create_event);
         tabLayout.getTabAt(2).setIcon(R.drawable.search);
+
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MessageFeedActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -83,63 +95,15 @@ public class MainActivity extends AppCompatActivity {
             });
     }
 
-
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sample_actions, menu);
-        return true;
-    }*/
-
-    /*@Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        switch (AppCompatDelegate.getDefaultNightMode()) {
-            case AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM:
-                menu.findItem(R.id.menu_night_mode_system).setChecked(true);
-                break;
-            case AppCompatDelegate.MODE_NIGHT_AUTO:
-                menu.findItem(R.id.menu_night_mode_auto).setChecked(true);
-                break;
-            case AppCompatDelegate.MODE_NIGHT_YES:
-                menu.findItem(R.id.menu_night_mode_night).setChecked(true);
-                break;
-            case AppCompatDelegate.MODE_NIGHT_NO:
-                menu.findItem(R.id.menu_night_mode_day).setChecked(true);
-                break;
-        }
-        return true;
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            /*case R.id.menu_night_mode_system:
-                setNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                break;
-            case R.id.menu_night_mode_day:
-                setNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                break;
-            case R.id.menu_night_mode_night:
-                setNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                break;
-            case R.id.menu_night_mode_auto:
-                setNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-                break;*/
         }
         return super.onOptionsItemSelected(item);
     }
-
-    /*private void setNightMode(@AppCompatDelegate.NightMode int nightMode) {
-        AppCompatDelegate.setDefaultNightMode(nightMode);
-
-        if (Build.VERSION.SDK_INT >= 11) {
-            recreate();
-        }
-    }*/
-
 
     static class Adapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragments = new ArrayList<>();

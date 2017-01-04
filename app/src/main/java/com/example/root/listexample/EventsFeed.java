@@ -35,7 +35,7 @@ public class EventsFeed extends Fragment{
     private List<MyEvents> eventsList = new ArrayList<MyEvents>();
     private RecyclerView rv;
     private EventAdapter eventAdapter;
-    private static final String url = "http://192.168.1.6/events.php";
+    private static final String url = "http://192.168.1.5/events.php";
 
     @Nullable
     @Override

@@ -1,11 +1,10 @@
 package com.example.root.listexample;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
@@ -23,11 +21,13 @@ public class EventActivity extends AppCompatActivity {
     private LinearLayout thumbnails;
     private RequestQueue mRequestQueue;
     private ImageLoader imageLoader;
+    private RecyclerView rv;
+    private CommentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_activity);
+        setContentView(R.layout.activity_event);
         Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -59,5 +59,14 @@ public class EventActivity extends AppCompatActivity {
             container.addView( image );
         }
 
+        rv = (RecyclerView) findViewById(R.id.comment_list);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
+        updateList();
+    }
+
+    private void updateList() {
+        adapter = new CommentAdapter(EventActivity.this);
+        rv.setAdapter(adapter);
     }
 }

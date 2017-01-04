@@ -155,7 +155,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 app:srcCompat="@drawable/rsvp_"
-                android:id="@+id/imageView8"
+                android:id="@+id/rsvpButton"
                 android:layout_alignBottom="@+id/interested"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
@@ -168,10 +168,10 @@
                 android:layout_height="28dp"
                 app:srcCompat="@drawable/chat_white"
 
-                android:id="@+id/imageView9"
-                android:layout_alignBottom="@+id/imageView8"
-                android:layout_toLeftOf="@+id/imageView8"
-                android:layout_toStartOf="@+id/imageView8"
+                android:id="@+id/eventRoomButton"
+                android:layout_alignBottom="@+id/rsvpButton"
+                android:layout_toLeftOf="@+id/rsvpButton"
+                android:layout_toStartOf="@+id/rsvpButton"
                 android:layout_marginRight="25dp"
                 android:layout_marginEnd="25dp" />
         </RelativeLayout>
